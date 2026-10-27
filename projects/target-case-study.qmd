@@ -1,0 +1,7 @@
+---
+title: "Target Brand Identity Case Study"
+description: "A team case presentation for IBM 6200 Online Consumer Psychology."
+categories: [Case Study, Consumer Behavior]
+---
+
+My team analyzed Target's brand identity challenges and presented the problem, competitive landscape, SWOT, and recommendations for our consumer psychology course.

@@ -1,0 +1,55 @@
+---
+title: "Using Listings to Build a Portfolio"
+listing:
+  contents: projects
+  type: grid
+  categories: true
+  sort: "title"
+  fields: [title, description, categories]
+  grid-columns: 3
+---
+
+## What Is a Listing?
+
+A listing is a Quarto feature that automatically builds a page of links from other pages in your project. Instead of writing a link for every project by hand, you point the listing at a folder, and Quarto reads each file's title, description, and categories to build the cards.
+
+::: {.callout-tip}
+## Why it's useful for a portfolio
+When I add a new project, I just drop a new `.qmd` file into the `projects` folder. The listing updates itself the next time the site renders.
+:::
+
+## How It Works
+
+The listing is set up in this page's YAML header:
+
+```{.yaml filename="listings.qmd"}
+listing:
+  contents: projects      # folder to pull pages from
+  type: grid              # card layout (other options: default, table)
+  categories: true        # adds clickable category filters
+  sort: "title"
+  fields: [title, description, categories]
+  grid-columns: 3
+```
+
+Each project page only needs a short header:
+
+```{.yaml filename="projects/efcu-dashboard.qmd"}
+---
+title: "EFCU Member Opinion Dashboard"
+description: "A Quarto dashboard summarizing a credit union member survey."
+categories: [Dashboard, R, Survey Research]
+---
+```
+
+## The Three Listing Types
+
+| Type | What it looks like | Best for |
+|---|---|---|
+| `default` | A list with titles and descriptions | Blogs and articles |
+| `grid` | Cards in columns | Portfolios and projects |
+| `table` | A sortable table | Many items with dates or numbers |
+
+## My Projects
+
+The cards below are a live listing built from my `projects` folder. Click a category to filter them.

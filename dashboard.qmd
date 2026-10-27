@@ -1,0 +1,56 @@
+---
+title: "My Culminating Experience Project"
+subtitle: "A dashboard portal for my MSDM CEP"
+---
+
+## About My CEP
+
+For my MSDM Culminating Experience Project, my team is working with Wellness Ranch Equine Assisted Therapy, a nonprofit that offers equine assisted therapy. Our project focuses on implementing and optimizing the ranch's digital marketing, including website and SEO improvements, GA4 analytics, and Google Ad Grants preparation. My part of the project is the SEO performance analysis.
+
+Because our GA4 tracking is still collecting data, I built this first dashboard with the Case 31 practice dataset. It lets me work out the layout and charts now, so I can swap in the ranch's data once there is enough of it.
+
+::: {.callout-note}
+## Practice data
+This dashboard uses Case 31: Employees Federal Credit Union, a member opinion survey from our IBM 6500 course. It is not Wellness Ranch data.
+:::
+
+## What the Dashboard Answers
+
+The credit union's board wanted to understand why members were not borrowing money from the credit union. The dashboard is organized around the questions they needed answered:
+
+1. How do members feel about credit union employees?
+2. How aware are members of the services offered?
+3. How do members feel about borrowing from the credit union?
+4. Do members who live near headquarters feel differently from members who live elsewhere?
+
+## Open the Dashboard
+
+[View the EFCU Member Opinion Dashboard](cep-dashboard.html){.btn .btn-primary .btn-lg}
+
+The dashboard has four pages:
+
+| Page | What it shows |
+|---|---|
+| Overview | Key numbers and member ratings of employees and the credit union |
+| Service Awareness | Which services members know about, use, or have never heard of |
+| Borrowing & Location | Loan attitudes and loan ownership, split by member location |
+| About the Data | Data source, business question, and tools used |
+
+## How I Built It
+
+The dashboard is a separate Quarto file that uses `format: dashboard` instead of `format: html`. In a dashboard, headings control the layout rather than the text:
+
+- A level one heading (`#`) creates a new page in the dashboard.
+- A level two heading (`## Row`) creates a row, and each code chunk inside it becomes a card.
+- A chunk with `#| content: valuebox` turns a single number into a highlighted value box.
+
+Here is the code behind one of the value boxes:
+
+```{.r filename="cep-dashboard.qmd"}
+#| content: valuebox
+#| title: "Currently have an EFCU loan"
+pct_loan <- mean(efcu$q27 == 1) * 100
+list(icon = "cash-coin", color = blush, value = paste0(round(pct_loan), "%"))
+```
+
+The charts are made with ggplot2 and use the same pink neutral palette as the rest of this site, so the dashboard feels like part of the portfolio.

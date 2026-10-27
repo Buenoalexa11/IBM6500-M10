@@ -1,0 +1,141 @@
+---
+title: "Styling a Quarto Website with CSS & SCSS"
+---
+
+## What CSS and SCSS Do
+
+Quarto handles the structure of a website, like pages, the navbar, and the table of contents. CSS controls how it looks, like colors, fonts, spacing, and borders. SCSS is CSS with extra features, and the most useful one is variables. You define a color once and reuse it everywhere, so changing one line updates the whole site.
+
+::: {.callout-tip}
+## Why this matters for a portfolio
+A built-in theme makes a site look clean, but every Quarto site using it looks the same. A small SCSS file is the easiest way to make a portfolio feel personal and on brand.
+:::
+
+## How Quarto Uses an SCSS File
+
+There are three steps.
+
+1. Start with a built-in Bootstrap theme. This site uses `cosmo`.
+2. Write a `.scss` file with your own variables and rules.
+3. Tell `_quarto.yml` to layer your file on top of the theme.
+
+```{.yaml filename="_quarto.yml"}
+format:
+  html:
+    theme: [cosmo, custom.scss]
+```
+
+The square brackets mean "start with cosmo, then apply my file on top."
+
+## The Two Sections of an SCSS File
+
+Quarto needs two labeled sections so it knows when to apply each part.
+
+| Section | What goes in it | When it applies |
+|---|---|---|
+| `/*-- scss:defaults --*/` | Variables like colors and fonts | Before the theme is built |
+| `/*-- scss:rules --*/` | Regular CSS rules | After the theme is built |
+
+## My Color Palette
+
+I chose a pink neutral palette that feels warm and approachable.
+
+::: {layout-ncol=5}
+::: {style="background:#F2D7D9; padding:1.5rem; border-radius:12px; text-align:center;"}
+Blush<br>`#F2D7D9`
+:::
+::: {style="background:#B5646F; color:white; padding:1.5rem; border-radius:12px; text-align:center;"}
+Dusty rose<br>`#B5646F`
+:::
+::: {style="background:#FAF6F2; padding:1.5rem; border-radius:12px; text-align:center; border:1px solid #EFE6DD;"}
+Cream<br>`#FAF6F2`
+:::
+::: {style="background:#EFE6DD; padding:1.5rem; border-radius:12px; text-align:center;"}
+Sand<br>`#EFE6DD`
+:::
+::: {style="background:#4A3F3F; color:white; padding:1.5rem; border-radius:12px; text-align:center;"}
+Cocoa<br>`#4A3F3F`
+:::
+:::
+
+## Step 1: Defaults (Variables)
+
+This part sets the palette and fonts. Bootstrap variables like `$primary` and `$navbar-bg` are what the theme reads, so pointing them at my colors changes the whole site.
+
+```{.scss filename="custom.scss"}
+/*-- scss:defaults --*/
+
+// Fonts from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@400;600&display=swap');
+
+// Color palette: pink neutral
+$blush:      #F2D7D9;
+$dusty-rose: #B5646F;
+$cream:      #FAF6F2;
+$sand:       #EFE6DD;
+$cocoa:      #4A3F3F;
+
+// Tell Bootstrap which colors to use
+$primary:     $dusty-rose;
+$body-bg:     $cream;
+$body-color:  $cocoa;
+$link-color:  $dusty-rose;
+$navbar-bg:   $blush;
+$navbar-fg:   $cocoa;
+
+// Fonts
+$font-family-sans-serif: 'Nunito', sans-serif;
+$headings-font-family:   'Playfair Display', serif;
+```
+
+## Step 2: Rules (Custom Styling)
+
+This part adds small details that the theme variables don't cover.
+
+```{.scss filename="custom.scss"}
+/*-- scss:rules --*/
+
+// Soft underline under section headings
+h2 {
+  border-bottom: 2px solid $blush;
+  padding-bottom: 0.3rem;
+}
+
+// Rounded corners on images, like my profile photo
+img {
+  border-radius: 16px;
+}
+
+// Callout boxes get the sand background
+.callout {
+  background-color: $sand;
+  border-radius: 12px;
+}
+
+// Bold text turns dusty rose
+strong {
+  color: $dusty-rose;
+}
+```
+
+## What Changed on This Site
+
+::: {.panel-tabset}
+
+### Navbar
+The navbar uses blush instead of the default cosmo color, set with `$navbar-bg`.
+
+### Fonts
+Headings use Playfair Display and body text uses Nunito, set with `$headings-font-family` and `$font-family-sans-serif`.
+
+### Details
+Every `h2` has a blush underline, images have rounded corners, and bold text is dusty rose. You can see the bold rule on my Home page skill labels.
+
+### Dashboard
+My CEP dashboard reuses the same `custom.scss`, so it matches the rest of the site.
+
+:::
+
+## What I Learned
+
+The biggest takeaway for me was how much a few variables can change. Once the palette was defined, I didn't have to style each page separately. If I want to rebrand later, I only need to swap the hex codes in one file.

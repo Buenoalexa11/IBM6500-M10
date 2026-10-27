@@ -1,0 +1,53 @@
+/*-- scss:defaults --*/
+
+// Fonts from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@400;600&display=swap');
+
+// Color palette: pink neutral
+$blush:      #F2D7D9;   // soft pink
+$dusty-rose: #B5646F;   // deeper pink for links and accents
+$cream:      #FAF6F2;   // page background
+$sand:       #EFE6DD;   // warm beige for boxes
+$cocoa:      #4A3F3F;   // main text color
+
+// Tell Bootstrap which colors to use
+$primary:      $dusty-rose;
+$body-bg:      $cream;
+$body-color:   $cocoa;
+$link-color:   $dusty-rose;
+$navbar-bg:    $blush;
+$navbar-fg:    $cocoa;
+$footer-bg:    $blush;
+
+// Fonts
+$font-family-sans-serif: 'Nunito', sans-serif;
+$headings-font-family:   'Playfair Display', serif;
+
+/*-- scss:rules --*/
+
+// Headings
+h1, h2, h3 {
+  color: $cocoa;
+}
+
+// Soft underline under section headings
+h2 {
+  border-bottom: 2px solid $blush;
+  padding-bottom: 0.3rem;
+}
+
+// Rounded corners on images (great for your profile photo)
+img {
+  border-radius: 16px;
+}
+
+// Callout boxes get the beige background
+.callout {
+  background-color: $sand;
+  border-radius: 12px;
+}
+
+// Make bold text dusty rose
+strong {
+  color: $dusty-rose;
+}

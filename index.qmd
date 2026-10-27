@@ -1,0 +1,105 @@
+---
+title: "Alexa Bueno"
+subtitle: "Operations & E-Commerce | M.S. Digital Marketing & Analytics"
+image: images/profile.jpg
+toc: false
+about:
+  template: trestles
+  image-shape: rounded
+  image-width: 15em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/alexa-bueno11
+    - icon: github
+      text: GitHub
+      href: https://github.com/Buenoalexa11
+---
+
+## About Me
+
+Hi, I'm Alexa! I'm a marketing and operations professional based in Los Angeles, currently pursuing my M.S. in Digital Marketing and Analytics at Cal Poly Pomona.
+
+I've worked with startups and consumer brands across music technology, toys, and Korean skincare. Right now I'm a B2C Operations & Marketing Specialist at Hamee and ByUR, where I keep things running across TikTok Shop, Shopify, Walmart, Amazon, and Target Plus. I like being the person who connects the dots between teams, and grad school is helping me get better at backing those decisions up with data.
+
+## Career Aspirations
+
+I'm working toward a role in operations and e-commerce where I can use analytics to improve how teams work and how customers experience a brand. I'm most interested in the space where marketing, process, and data overlap, like turning performance reports into clear next steps or making marketplace operations run more smoothly.
+
+## Experience
+
+::: {.panel-tabset}
+
+### Hamee & ByUR
+
+**B2C Operations & Marketing Specialist** | Jan 2026 to Present
+
+- Coordinate daily operations across TikTok Shop, Shopify, Walmart, Amazon, and Target Plus
+- Manage product listings, inventory updates, and marketplace documentation
+- Support viral product launches, creator partnerships, and affiliate outreach
+- Maintain reporting dashboards and analyze performance
+
+### Feels
+
+**Marketing Coordinator** | May 2025 to June 2026
+
+- Helped plan content for music-focused promotions with independent artists
+- Provided Spanish-language support for app translations and user-facing messaging
+- Shared insights on the Spanish music industry to shape audience-focused campaigns
+
+### AUSD
+
+**Administrative Assistant** | Oct 2024 to May 2025
+
+- Supported administrators, faculty, students, and parents in a busy school office
+- Managed data entry and records with accuracy and confidentiality
+- Coordinated schedules, appointments, and school events
+
+:::
+
+## Skills
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Marketing & E-Commerce**
+
+- Growth marketing and campaign strategy
+- Creator and influencer partnerships
+- TikTok Shop, Shopify, Amazon, and Walmart
+- SEO and content strategy
+- Email marketing (Klaviyo, HubSpot)
+:::
+
+::: {.column width="50%"}
+**Analytics & Tools**
+
+- GA4, Looker Studio, and Tableau
+- R, Positron, and Quarto
+- GitHub
+- Qualtrics
+- Data analysis and performance reporting
+:::
+
+::::
+
+## Education
+
+**M.S. Digital Marketing & Analytics**  
+Cal Poly Pomona | Expected May 2027
+
+**B.S. Marketing**  
+California State University, Los Angeles | 2021 to 2025
+
+## Certifications
+
+- HubSpot: Email Marketing Certification (2025)
+- HubSpot: Digital Advertising (2025)
+- Google: Manage GA4 Data (2025)
+- LinkedIn Learning: Excel PivotTables (2025)
+- DataCamp: Introduction to SQL (2026)
+- DataCamp: Intermediate SQL (2026)
+- DataCamp: Introduction to BigQuery (2026)
+- Coursera: Intro to Data Analysis (2024)
+- Udemy: Sales Analytics & Modeling (2024)
+- Hootsuite: Social Marketing (2021)

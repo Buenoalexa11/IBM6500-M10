@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "styling.html",
+    "href": "styling.html",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "",
+    "text": "Quarto handles the structure of a website, like pages, the navbar, and the table of contents. CSS controls how it looks, like colors, fonts, spacing, and borders. SCSS is CSS with extra features, and the most useful one is variables. You define a color once and reuse it everywhere, so changing one line updates the whole site.\n\n\n\n\n\n\nTipWhy this matters for a portfolio\n\n\n\nA built-in theme makes a site look clean, but every Quarto site using it looks the same. A small SCSS file is the easiest way to make a portfolio feel personal and on brand."
+  },
+  {
+    "objectID": "styling.html#what-css-and-scss-do",
+    "href": "styling.html#what-css-and-scss-do",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "",
+    "text": "Quarto handles the structure of a website, like pages, the navbar, and the table of contents. CSS controls how it looks, like colors, fonts, spacing, and borders. SCSS is CSS with extra features, and the most useful one is variables. You define a color once and reuse it everywhere, so changing one line updates the whole site.\n\n\n\n\n\n\nTipWhy this matters for a portfolio\n\n\n\nA built-in theme makes a site look clean, but every Quarto site using it looks the same. A small SCSS file is the easiest way to make a portfolio feel personal and on brand."
+  },
+  {
+    "objectID": "styling.html#how-quarto-uses-an-scss-file",
+    "href": "styling.html#how-quarto-uses-an-scss-file",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "How Quarto Uses an SCSS File",
+    "text": "How Quarto Uses an SCSS File\nThere are three steps.\n\nStart with a built-in Bootstrap theme. This site uses cosmo.\nWrite a .scss file with your own variables and rules.\nTell _quarto.yml to layer your file on top of the theme.\n\n\n\n_quarto.yml\n\nformat:\n  html:\n    theme: [cosmo, custom.scss]\n\nThe square brackets mean “start with cosmo, then apply my file on top.”"
+  },
+  {
+    "objectID": "styling.html#the-two-sections-of-an-scss-file",
+    "href": "styling.html#the-two-sections-of-an-scss-file",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "The Two Sections of an SCSS File",
+    "text": "The Two Sections of an SCSS File\nQuarto needs two labeled sections so it knows when to apply each part.\n\n\n\n\n\n\n\n\nSection\nWhat goes in it\nWhen it applies\n\n\n\n\n/*-- scss:defaults --*/\nVariables like colors and fonts\nBefore the theme is built\n\n\n/*-- scss:rules --*/\nRegular CSS rules\nAfter the theme is built"
+  },
+  {
+    "objectID": "styling.html#my-color-palette",
+    "href": "styling.html#my-color-palette",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "My Color Palette",
+    "text": "My Color Palette\nI chose a pink neutral palette that feels warm and approachable.\n\n\n\nBlush#F2D7D9\n\n\nDusty rose#B5646F\n\n\nCream#FAF6F2\n\n\nSand#EFE6DD\n\n\nCocoa#4A3F3F"
+  },
+  {
+    "objectID": "styling.html#step-1-defaults-variables",
+    "href": "styling.html#step-1-defaults-variables",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "Step 1: Defaults (Variables)",
+    "text": "Step 1: Defaults (Variables)\nThis part sets the palette and fonts. Bootstrap variables like $primary and $navbar-bg are what the theme reads, so pointing them at my colors changes the whole site.\n\n\ncustom.scss\n\n/*-- scss:defaults --*/\n\n// Fonts from Google Fonts\n@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@400;600&display=swap');\n\n// Color palette: pink neutral\n$blush:      #F2D7D9;\n$dusty-rose: #B5646F;\n$cream:      #FAF6F2;\n$sand:       #EFE6DD;\n$cocoa:      #4A3F3F;\n\n// Tell Bootstrap which colors to use\n$primary:     $dusty-rose;\n$body-bg:     $cream;\n$body-color:  $cocoa;\n$link-color:  $dusty-rose;\n$navbar-bg:   $blush;\n$navbar-fg:   $cocoa;\n\n// Fonts\n$font-family-sans-serif: 'Nunito', sans-serif;\n$headings-font-family:   'Playfair Display', serif;"
+  },
+  {
+    "objectID": "styling.html#step-2-rules-custom-styling",
+    "href": "styling.html#step-2-rules-custom-styling",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "Step 2: Rules (Custom Styling)",
+    "text": "Step 2: Rules (Custom Styling)\nThis part adds small details that the theme variables don’t cover.\n\n\ncustom.scss\n\n/*-- scss:rules --*/\n\n// Soft underline under section headings\nh2 {\n  border-bottom: 2px solid $blush;\n  padding-bottom: 0.3rem;\n}\n\n// Rounded corners on images, like my profile photo\nimg {\n  border-radius: 16px;\n}\n\n// Callout boxes get the sand background\n.callout {\n  background-color: $sand;\n  border-radius: 12px;\n}\n\n// Bold text turns dusty rose\nstrong {\n  color: $dusty-rose;\n}"
+  },
+  {
+    "objectID": "styling.html#what-changed-on-this-site",
+    "href": "styling.html#what-changed-on-this-site",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "What Changed on This Site",
+    "text": "What Changed on This Site\n\nNavbarFontsDetailsDashboard\n\n\nThe navbar uses blush instead of the default cosmo color, set with $navbar-bg.\n\n\nHeadings use Playfair Display and body text uses Nunito, set with $headings-font-family and $font-family-sans-serif.\n\n\nEvery h2 has a blush underline, images have rounded corners, and bold text is dusty rose. You can see the bold rule on my Home page skill labels.\n\n\nMy CEP dashboard reuses the same custom.scss, so it matches the rest of the site."
+  },
+  {
+    "objectID": "styling.html#what-i-learned",
+    "href": "styling.html#what-i-learned",
+    "title": "Styling a Quarto Website with CSS & SCSS",
+    "section": "What I Learned",
+    "text": "What I Learned\nThe biggest takeaway for me was how much a few variables can change. Once the palette was defined, I didn’t have to style each page separately. If I want to rebrand later, I only need to swap the hex codes in one file."
+  },
+  {
+    "objectID": "projects/target-case-study.html",
+    "href": "projects/target-case-study.html",
+    "title": "Target Brand Identity Case Study",
+    "section": "",
+    "text": "My team analyzed Target’s brand identity challenges and presented the problem, competitive landscape, SWOT, and recommendations for our consumer psychology course."
+  },
+  {
+    "objectID": "listings.html",
+    "href": "listings.html",
+    "title": "Using Listings to Build a Portfolio",
+    "section": "",
+    "text": "A listing is a Quarto feature that automatically builds a page of links from other pages in your project. Instead of writing a link for every project by hand, you point the listing at a folder, and Quarto reads each file’s title, description, and categories to build the cards.\n\n\n\n\n\n\nTipWhy it’s useful for a portfolio\n\n\n\nWhen I add a new project, I just drop a new .qmd file into the projects folder. The listing updates itself the next time the site renders."
+  },
+  {
+    "objectID": "listings.html#what-is-a-listing",
+    "href": "listings.html#what-is-a-listing",
+    "title": "Using Listings to Build a Portfolio",
+    "section": "",
+    "text": "A listing is a Quarto feature that automatically builds a page of links from other pages in your project. Instead of writing a link for every project by hand, you point the listing at a folder, and Quarto reads each file’s title, description, and categories to build the cards.\n\n\n\n\n\n\nTipWhy it’s useful for a portfolio\n\n\n\nWhen I add a new project, I just drop a new .qmd file into the projects folder. The listing updates itself the next time the site renders."
+  },
+  {
+    "objectID": "listings.html#how-it-works",
+    "href": "listings.html#how-it-works",
+    "title": "Using Listings to Build a Portfolio",
+    "section": "How It Works",
+    "text": "How It Works\nThe listing is set up in this page’s YAML header:\n\n\nlistings.qmd\n\nlisting:\n  contents: projects      # folder to pull pages from\n  type: grid              # card layout (other options: default, table)\n  categories: true        # adds clickable category filters\n  sort: \"title\"\n  fields: [title, description, categories]\n  grid-columns: 3\n\nEach project page only needs a short header:\n\n\nprojects/efcu-dashboard.qmd\n\n---\ntitle: \"EFCU Member Opinion Dashboard\"\ndescription: \"A Quarto dashboard summarizing a credit union member survey.\"\ncategories: [Dashboard, R, Survey Research]\n---"
+  },
+  {
+    "objectID": "listings.html#the-three-listing-types",
+    "href": "listings.html#the-three-listing-types",
+    "title": "Using Listings to Build a Portfolio",
+    "section": "The Three Listing Types",
+    "text": "The Three Listing Types\n\n\n\nType\nWhat it looks like\nBest for\n\n\n\n\ndefault\nA list with titles and descriptions\nBlogs and articles\n\n\ngrid\nCards in columns\nPortfolios and projects\n\n\ntable\nA sortable table\nMany items with dates or numbers"
+  },
+  {
+    "objectID": "listings.html#my-projects",
+    "href": "listings.html#my-projects",
+    "title": "Using Listings to Build a Portfolio",
+    "section": "My Projects",
+    "text": "My Projects\nThe cards below are a live listing built from my projects folder. Click a category to filter them."
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "My Culminating Experience Project",
+    "section": "",
+    "text": "For my MSDM Culminating Experience Project, my team is working with Wellness Ranch Equine Assisted Therapy, a nonprofit that offers equine assisted therapy. Our project focuses on implementing and optimizing the ranch’s digital marketing, including website and SEO improvements, GA4 analytics, and Google Ad Grants preparation. My part of the project is the SEO performance analysis.\nBecause our GA4 tracking is still collecting data, I built this first dashboard with the Case 31 practice dataset. It lets me work out the layout and charts now, so I can swap in the ranch’s data once there is enough of it.\n\n\n\n\n\n\nNotePractice data\n\n\n\nThis dashboard uses Case 31: Employees Federal Credit Union, a member opinion survey from our IBM 6500 course. It is not Wellness Ranch data."
+  },
+  {
+    "objectID": "dashboard.html#about-my-cep",
+    "href": "dashboard.html#about-my-cep",
+    "title": "My Culminating Experience Project",
+    "section": "",
+    "text": "For my MSDM Culminating Experience Project, my team is working with Wellness Ranch Equine Assisted Therapy, a nonprofit that offers equine assisted therapy. Our project focuses on implementing and optimizing the ranch’s digital marketing, including website and SEO improvements, GA4 analytics, and Google Ad Grants preparation. My part of the project is the SEO performance analysis.\nBecause our GA4 tracking is still collecting data, I built this first dashboard with the Case 31 practice dataset. It lets me work out the layout and charts now, so I can swap in the ranch’s data once there is enough of it.\n\n\n\n\n\n\nNotePractice data\n\n\n\nThis dashboard uses Case 31: Employees Federal Credit Union, a member opinion survey from our IBM 6500 course. It is not Wellness Ranch data."
+  },
+  {
+    "objectID": "dashboard.html#what-the-dashboard-answers",
+    "href": "dashboard.html#what-the-dashboard-answers",
+    "title": "My Culminating Experience Project",
+    "section": "What the Dashboard Answers",
+    "text": "What the Dashboard Answers\nThe credit union’s board wanted to understand why members were not borrowing money from the credit union. The dashboard is organized around the questions they needed answered:\n\nHow do members feel about credit union employees?\nHow aware are members of the services offered?\nHow do members feel about borrowing from the credit union?\nDo members who live near headquarters feel differently from members who live elsewhere?"
+  },
+  {
+    "objectID": "dashboard.html#open-the-dashboard",
+    "href": "dashboard.html#open-the-dashboard",
+    "title": "My Culminating Experience Project",
+    "section": "Open the Dashboard",
+    "text": "Open the Dashboard\nView the EFCU Member Opinion Dashboard\nThe dashboard has four pages:\n\n\n\n\n\n\n\nPage\nWhat it shows\n\n\n\n\nOverview\nKey numbers and member ratings of employees and the credit union\n\n\nService Awareness\nWhich services members know about, use, or have never heard of\n\n\nBorrowing & Location\nLoan attitudes and loan ownership, split by member location\n\n\nAbout the Data\nData source, business question, and tools used"
+  },
+  {
+    "objectID": "dashboard.html#how-i-built-it",
+    "href": "dashboard.html#how-i-built-it",
+    "title": "My Culminating Experience Project",
+    "section": "How I Built It",
+    "text": "How I Built It\nThe dashboard is a separate Quarto file that uses format: dashboard instead of format: html. In a dashboard, headings control the layout rather than the text:\n\nA level one heading (#) creates a new page in the dashboard.\nA level two heading (## Row) creates a row, and each code chunk inside it becomes a card.\nA chunk with #| content: valuebox turns a single number into a highlighted value box.\n\nHere is the code behind one of the value boxes:\n\n\ncep-dashboard.qmd\n\n#| content: valuebox\n#| title: \"Currently have an EFCU loan\"\npct_loan &lt;- mean(efcu$q27 == 1) * 100\nlist(icon = \"cash-coin\", color = blush, value = paste0(round(pct_loan), \"%\"))\n\nThe charts are made with ggplot2 and use the same pink neutral palette as the rest of this site, so the dashboard feels like part of the portfolio."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Alexa Bueno",
+    "section": "",
+    "text": "Hi, I’m Alexa! I’m a marketing and operations professional based in Los Angeles, currently pursuing my M.S. in Digital Marketing and Analytics at Cal Poly Pomona.\nI’ve worked with startups and consumer brands across music technology, toys, and Korean skincare. Right now I’m a B2C Operations & Marketing Specialist at Hamee and ByUR, where I keep things running across TikTok Shop, Shopify, Walmart, Amazon, and Target Plus. I like being the person who connects the dots between teams, and grad school is helping me get better at backing those decisions up with data."
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Alexa Bueno",
+    "section": "",
+    "text": "Hi, I’m Alexa! I’m a marketing and operations professional based in Los Angeles, currently pursuing my M.S. in Digital Marketing and Analytics at Cal Poly Pomona.\nI’ve worked with startups and consumer brands across music technology, toys, and Korean skincare. Right now I’m a B2C Operations & Marketing Specialist at Hamee and ByUR, where I keep things running across TikTok Shop, Shopify, Walmart, Amazon, and Target Plus. I like being the person who connects the dots between teams, and grad school is helping me get better at backing those decisions up with data."
+  },
+  {
+    "objectID": "index.html#career-aspirations",
+    "href": "index.html#career-aspirations",
+    "title": "Alexa Bueno",
+    "section": "Career Aspirations",
+    "text": "Career Aspirations\nI’m working toward a role in operations and e-commerce where I can use analytics to improve how teams work and how customers experience a brand. I’m most interested in the space where marketing, process, and data overlap, like turning performance reports into clear next steps or making marketplace operations run more smoothly."
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Alexa Bueno",
+    "section": "Experience",
+    "text": "Experience\n\nHamee & ByURFeelsAUSD\n\n\nB2C Operations & Marketing Specialist | Jan 2026 to Present\n\nCoordinate daily operations across TikTok Shop, Shopify, Walmart, Amazon, and Target Plus\nManage product listings, inventory updates, and marketplace documentation\nSupport viral product launches, creator partnerships, and affiliate outreach\nMaintain reporting dashboards and analyze performance\n\n\n\nMarketing Coordinator | May 2025 to June 2026\n\nHelped plan content for music-focused promotions with independent artists\nProvided Spanish-language support for app translations and user-facing messaging\nShared insights on the Spanish music industry to shape audience-focused campaigns\n\n\n\nAdministrative Assistant | Oct 2024 to May 2025\n\nSupported administrators, faculty, students, and parents in a busy school office\nManaged data entry and records with accuracy and confidentiality\nCoordinated schedules, appointments, and school events"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Alexa Bueno",
+    "section": "Skills",
+    "text": "Skills\n\n\nMarketing & E-Commerce\n\nGrowth marketing and campaign strategy\nCreator and influencer partnerships\nTikTok Shop, Shopify, Amazon, and Walmart\nSEO and content strategy\nEmail marketing (Klaviyo, HubSpot)\n\n\nAnalytics & Tools\n\nGA4, Looker Studio, and Tableau\nR, Positron, and Quarto\nGitHub\nQualtrics\nData analysis and performance reporting"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Alexa Bueno",
+    "section": "Education",
+    "text": "Education\nM.S. Digital Marketing & Analytics\nCal Poly Pomona | Expected May 2027\nB.S. Marketing\nCalifornia State University, Los Angeles | 2021 to 2025"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Alexa Bueno",
+    "section": "Certifications",
+    "text": "Certifications\n\nHubSpot: Email Marketing Certification (2025)\nHubSpot: Digital Advertising (2025)\nGoogle: Manage GA4 Data (2025)\nLinkedIn Learning: Excel PivotTables (2025)\nDataCamp: Introduction to SQL (2026)\nDataCamp: Intermediate SQL (2026)\nDataCamp: Introduction to BigQuery (2026)\nCoursera: Intro to Data Analysis (2024)\nUdemy: Sales Analytics & Modeling (2024)\nHootsuite: Social Marketing (2021)"
+  },
+  {
+    "objectID": "projects/efcu-dashboard.html",
+    "href": "projects/efcu-dashboard.html",
+    "title": "EFCU Member Opinion Dashboard",
+    "section": "",
+    "text": "A four-page dashboard built with R and Quarto using Case 31 survey data from 128 credit union members. It covers employee ratings, service awareness, and borrowing attitudes.\nOpen the dashboard"
+  },
+  {
+    "objectID": "projects/wellness-ranch-seo.html",
+    "href": "projects/wellness-ranch-seo.html",
+    "title": "Wellness Ranch SEO Performance Analysis",
+    "section": "",
+    "text": "For our Culminating Experience Project, my team is helping Wellness Ranch Equine Assisted Therapy improve its digital marketing. I’m responsible for analyzing the site’s on-page and off-page SEO performance.\nThis project is in progress, and results will be added once the analysis is complete."
+  }
+]

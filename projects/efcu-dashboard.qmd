@@ -1,0 +1,9 @@
+---
+title: "EFCU Member Opinion Dashboard"
+description: "A Quarto dashboard summarizing a credit union member survey."
+categories: [Dashboard, R, Survey Research]
+---
+
+A four-page dashboard built with R and Quarto using Case 31 survey data from 128 credit union members. It covers employee ratings, service awareness, and borrowing attitudes.
+
+[Open the dashboard](../cep-dashboard.html){.btn .btn-primary}
